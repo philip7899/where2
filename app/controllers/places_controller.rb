@@ -38,11 +38,15 @@ class PlacesController < ApplicationController
 		end
 		respond_to do |format|
 			format.html do
+				if session.delete(:places)
+					puts "DELETED YO"
+				end
+				session.delete(:no)
+				session.delete(:showed)
 				render 'index'
 			end
 			format.js do
 				if @out
-					flash[:success] = "Here are your results"
 					redirect_to suggestions_path
 				else
 					render 'index'
@@ -52,7 +56,10 @@ class PlacesController < ApplicationController
 	end
 
 	def suggestions
-
+		session.delete(:no)
+		session.delete(:showed)
+		@places = session[:places]
+		session.delete(:places)
 	end
 
 	def place_logic
@@ -78,7 +85,11 @@ class PlacesController < ApplicationController
 		else
 			session[:showed] = [@place.id]
 		end
-		redirect_to places_path
+		if session[:places].count >= 3
+			redirect_to suggestions_path
+		else
+			redirect_to places_path
+		end
 	end
 
 	private
