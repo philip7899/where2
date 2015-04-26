@@ -1,2 +1,6 @@
-<% puts 'in javascript yolo' %>
-$('.details').append("<%= j render 'index' %>");
+if ($('.current_place').length){
+    $('.current_place').html("<%= j render 'index' %>");
+}else{
+	$('.details').append("<div class='current_place'></div>");
+	$('.current_place').html("<%= j render 'index' %>");
+}

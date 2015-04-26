@@ -1,2 +1,5 @@
 <% puts "in index partial" %>
-<%= image_tag @place.picture %>
+
+	<%= image_tag @place.picture %>
+	<%= link_to "yes", place_logic_path("yes", @place), remote: true %>
+	<%= link_to "no", place_logic_path("no", @place), remote: true %>

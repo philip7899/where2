@@ -1,5 +1,8 @@
 class PlacesController < ApplicationController
 	def new
+		session.delete(:places)
+		session.delete(:no)
+		session.delete(:showed)
 		@place = Place.new
 	end
 
@@ -18,15 +21,64 @@ class PlacesController < ApplicationController
 	end
 
 	def index
+
 		@place = Place.offset(rand(Place.count)).first
+		@place_array = session[:showed]
+		puts "SESSION BROGO: #{@place_array.inspect}"
+		if @place_array
+			while(@place_array.include?(@place.id)) do
+				puts "IN THE LOOP YO"
+				@place = Place.offset(rand(Place.count)).first
+				if @place_array.count >= Place.count
+					@out = true
+					break
+				end
+			end
+
+		end
 		respond_to do |format|
 			format.html do
 				render 'index'
 			end
 			format.js do
-				render 'index'
+				if @out
+					flash[:success] = "Here are your results"
+					redirect_to suggestions_path
+				else
+					render 'index'
+				end
 			end
 		end
+	end
+
+	def suggestions
+
+	end
+
+	def place_logic
+		@decision = params[:decision]
+		@place = Place.find(params[:place_id])
+		if @decision == "yes"
+			if session[:places]
+				session[:places].push(@place.id)
+			else
+				session[:places] = [@place.id]
+			end
+			puts "heres session PLACES: " + session[:places].inspect.to_s
+		elsif @decision == "no"
+			if session[:no]
+				session[:no].push(@place.id)
+			else
+				session[:no] = [@place.id]
+			end
+			puts "heres session NO: " + session[:no].inspect.to_s
+		end
+		if session[:showed]
+			session[:showed].push(@place.id)
+		else
+			session[:showed] = [@place.id]
+		end
+		redirect_to places_path
 	end
 
 	private

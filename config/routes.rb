@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :details
   resources :places
+
+  get 'placelogic/:decision/:place_id', to: 'places#place_logic', as: :place_logic
+  get 'suggestions', to: 'places#suggestions', as: :suggestions
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
