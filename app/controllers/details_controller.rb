@@ -1,8 +1,5 @@
-class StaticpagesController < ApplicationController
-  def index
-  	@detail = Detail.new
-  end
-
+class DetailsController < ApplicationController
+  
   def create
   	@detail = Detail.new(detail_params)
   	if @detail.save

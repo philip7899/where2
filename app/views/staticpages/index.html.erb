@@ -1,6 +1,8 @@
-<%= simple_form_for @detail do |f| %>
-	<%= f.input :start_date %>
-	<%= f.input :end_date %>
-	<%= f.input :high_price %>
-	<%= f.button :submit, value: "Continue" %>
-<% end %>
+<div class="details">
+	<%= simple_form_for @detail, remote: true do |f| %>
+		<%= f.input :start_date %>
+		<%= f.input :end_date %>
+		<%= f.input :high_price %>
+		<%= f.button :submit, value: "Continue" %>
+	<% end %>
+</div>
