@@ -85,6 +85,7 @@ class PlacesController < ApplicationController
 		else
 			session[:showed] = [@place.id]
 		end
+
 		if session[:places].count >= 3
 			redirect_to suggestions_path
 		else

@@ -1,19 +1,4 @@
-<% puts "in index partial" %>
-
-
-
-	   	<center>
-	 		<%= image_tag @place.picture, class: 'img-thumbnail', style: "max-height: 600px;" %>
-	    </center>
-
-	    <div class="buttons">
-	    	<%= link_to "I love it", place_logic_path("yes", @place), remote: true, id: 'love', class: 'btn btn-info btn-large active' %>
-	    	<%= link_to "No Thanks", place_logic_path("no", @place), remote: true, id: 'hate', class: 'btn btn-danger btn-large active' %>
-		</div>
-	
-	<style>
-
-	/*!
+/*!
  * Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
@@ -23,8 +8,8 @@ body {
     width: 100%;
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #fff;
-    background-color: #f2eaea;
+    color: #302c28;
+    background-color: #fff;
 }
 
 html {
@@ -48,7 +33,23 @@ h6 {
 h1{
     color: #ff9000;
 }
+h4{
+  position: relative;
+  left: -15%;
+  top: 17px;
+    
+}
 
+#phil{
+  left: -20%;
+}
+#cenk{
+  left: -21%;
+}
+
+.text-muted{
+    margin-top: 10%;
+}
 
 p {
     margin: 0 0 25px;
@@ -90,6 +91,58 @@ a:focus {
     background-color: #000;
 }
 
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle:focus,
+.navbar-custom .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-custom a {
+    color: #fff;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+    outline: 0;
+    color: rgba(255,255,255,.8);
+    background-color: transparent;
+}
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active {
+    outline: 0;
+}
+
+.navbar-custom .nav li.active a {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-custom .nav li.active a:hover {
+    color: #fff;
+}
 
 @media(min-width:768px) {
     .navbar-custom {
@@ -116,7 +169,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    background: url(/assets/img/intro-bg.jpg) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -138,15 +191,17 @@ a:focus {
 }
 
 #canyon{
-    margin-top: 3%;
-    margin-left: 21%; 
-    max-height: 750px;
-    max-width: 750px;
+    margin-top: 6%;
+margin-left: 12%;    
 }
 
 .buttons{
-    margin-top: 2%;
+    margin-top: 5%;
     margin-left: 40%;
+}
+
+.flights{
+    margin-top: 5%;
 }
 
 @media(min-width:768px) {
@@ -162,6 +217,31 @@ a:focus {
     .intro .intro-body .intro-text {
         font-size: 26px;
     }
+}
+.row1 {
+margin-left: 8%;
+}
+.row2 {
+margin-left: 18%;
+}
+
+.calendar{
+    margin-left: 14%;
+}
+
+.budget{
+    margin-top: 15%;
+    margin-bottom: 8%;
+}
+
+.brand-heading{
+    margin-top: 20%;
+    margin-bottom: 8%;
+}
+
+.budget{
+    width: 200px;
+    margin-left: 35%;
 }
 
 .btn-circle {
@@ -246,12 +326,33 @@ a:focus {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+    background: url(/assets/img/downloads-bg.jpg) no-repeat center center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+#map {
+    width: 100%;
+    height: 200px;
+    margin-top: 100px;
+}
+
+@media(min-width:767px) {
+    .content-section {
+        padding-top: 250px;
+    }
+
+    .download-section {
+        padding: 100px 0;
+    }
+
+    #map {
+        height: 400px;
+        margin-top: 250px;
+    }
 }
 
 .btn {
@@ -278,6 +379,27 @@ a:focus {
     background-color: #42dca3;
 }
 
+ul.banner-social-buttons {
+    margin-top: 0;
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons {
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    ul.banner-social-buttons li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons li:last-child {
+        margin-bottom: 0;
+    }
+}
 
 footer {
     padding: 50px 0;
@@ -310,6 +432,3 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
 }
-
-
-</style>

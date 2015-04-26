@@ -1,6 +1,6 @@
-if ($('.current_place').length){
-    $('.current_place').html("<%= j render 'index' %>");
+if ($('#pictures').length){
+    $('#pictures').html("<%= j render 'index' %>");
 }else{
-	$('.details').append("<div class='current_place'></div>");
-	$('.current_place').html("<%= j render 'index' %>");
+	// $('.details').append("<div id='pictures'></div>");
+	$('#pictures').html("<%= j render 'index' %>");
 }
