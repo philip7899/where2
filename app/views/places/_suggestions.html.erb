@@ -1,1 +1,52 @@
-here are suggestions
+<div class="wrapper">
+    <!-- PRICING-TABLE CONTAINER -->
+    <div class="pricing-table group">
+        <h4 class="heading">
+            We think you might be interested in one of these flights...
+        </h4>
+        <!-- PERSONAL -->
+        <% @places.each_with_index do |place, index| %>
+        	<% @place = Place.find(place) %>
+        	<% @info = @place.get_flight_details(@details)%>
+        	<%= @info.inspect %>
+
+        	<% case index+1 %>
+        		<% when 1 %>
+        			<div class="block personal fl">
+        		<% when 2 %>
+        			<div class="block professional fl">
+        		<% when 3 %>
+        			<div class="block business fl">
+        	<% end %>
+	        
+	            <h2 class="title">Flight <%= index + 1 %></h2>
+	            <!-- CONTENT -->
+	            <div class="content">
+	                <p class="price">
+	                    <span><%= number_to_currency @info.to_a.flatten.last["price"], precision: 0  %></span>
+	                    <sub>round trip</sub>
+	                </p>
+	                <p class="hint"></p>
+	            </div>
+	            <!-- /CONTENT -->
+	            <!-- FEATURES -->
+	            <ul class="features">
+	                <li><span class="fontawesome-cog"></span><%= @place.name %></li>
+	                <li><span class="fontawesome-star"></span>Depart <%= @info.to_a.flatten.last["departure_date"] %></li>
+	                <li><span class="fontawesome-dashboard"></span>Return <%= @info.to_a.flatten.last["return_date"] %></li>
+	            </ul>
+	            <!-- /FEATURES -->
+	            <!-- PT-FOOTER -->
+	            <div class="pt-footer">
+	                <p>Book this flight</p>
+	            </div>
+	            <!-- /PT-FOOTER -->
+	        </div>
+	    <% end %>
+        <!-- /PERSONAL -->
+      
+
+        <!-- /BUSINESS -->
+    </div>
+    <!-- /PRICING-TABLE -->
+</div>

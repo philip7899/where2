@@ -3,6 +3,7 @@ class DetailsController < ApplicationController
   def create
   	@detail = Detail.new(detail_params)
   	if @detail.save
+      session[:detail] = @detail.id
   		redirect_to places_path
   	else
   		render 'index'

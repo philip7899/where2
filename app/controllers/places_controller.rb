@@ -59,7 +59,9 @@ class PlacesController < ApplicationController
 		session.delete(:no)
 		session.delete(:showed)
 		@places = session[:places]
+		@details = Detail.find(session[:detail]) 
 		session.delete(:places)
+
 	end
 
 	def place_logic
