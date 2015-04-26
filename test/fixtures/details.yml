@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  low_price: 1
+  high_price: 1
+  start_date: 2015-04-26 00:59:37
+  end_Date: 2015-04-26 00:59:37
+
+two:
+  low_price: 1
+  high_price: 1
+  start_date: 2015-04-26 00:59:37
+  end_Date: 2015-04-26 00:59:37

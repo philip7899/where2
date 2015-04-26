@@ -1,2 +1,6 @@
-<h1>Staticpages#index</h1>
-<p>Find me in app/views/staticpages/index.html.erb</p>
+<%= simple_form_for @detail do |f| %>
+	<%= f.input :start_date %>
+	<%= f.input :end_date %>
+	<%= f.input :high_price %>
+	<%= f.button :submit, value: "Continue" %>
+<% end %>
